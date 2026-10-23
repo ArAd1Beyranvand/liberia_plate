@@ -36,7 +36,6 @@ abstract final class _Layout {
   static const double statusLeft = missionLeft + 3 * pitch + 10;
   static const double numberLeft = statusLeft + 3 * pitch + 10;
 
-  static const double headerCx = 261, headerCy = 30, headerWidth = 300;
   static const double headerGlyph = 24;
 
   static const PlateBox flag = PlateBox(11.7, 7.3, 70.3, 47.3);
