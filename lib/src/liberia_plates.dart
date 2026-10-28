@@ -72,9 +72,21 @@ abstract final class LiberiaPlates {
         box: PlateBox(111, 18, 300, 24),
         glyphHeight: _Layout.headerGlyph,
       ),
-      PlateLabel(text: 'LB', box: PlateBox(36.5, 100.8, 70, 60), glyphHeight: _Layout.lbGlyph),
-      PlateLabel(text: 'Year', box: PlateBox(439.4, 220, 67.1, 14), glyphHeight: 14),
-      PlateLabel(text: 'Sticker', box: PlateBox(439.4, 234, 67.1, 14), glyphHeight: 14),
+      PlateLabel(
+        text: 'LB',
+        box: PlateBox(36.5, 100.8, 70, 60),
+        glyphHeight: _Layout.lbGlyph,
+      ),
+      PlateLabel(
+        text: 'Year',
+        box: PlateBox(439.4, 220, 67.1, 14),
+        glyphHeight: 14,
+      ),
+      PlateLabel(
+        text: 'Sticker',
+        box: PlateBox(439.4, 234, 67.1, 14),
+        glyphHeight: 14,
+      ),
     ],
     decals: const <PlateDecal>[
       PlateDecal(drawing: LiberiaCountry.flag, box: _Layout.flag),
@@ -103,24 +115,29 @@ abstract final class LiberiaPlates {
   ]);
 
   /// The year sticker's outline: a 1.2-unit rule on four sides.
-  static const PlateDrawing _stickerFrame = PlateDrawing(67.1, 46.3, <PlateShape>[
-    PlateRectShape(0, 0, 67.1, 1.2, LiberiaColors.ink),
-    PlateRectShape(0, 45.1, 67.1, 1.2, LiberiaColors.ink),
-    PlateRectShape(0, 0, 1.2, 46.3, LiberiaColors.ink),
-    PlateRectShape(65.9, 0, 1.2, 46.3, LiberiaColors.ink),
-  ]);
+  static const PlateDrawing _stickerFrame =
+      PlateDrawing(67.1, 46.3, <PlateShape>[
+        PlateRectShape(0, 0, 67.1, 1.2, LiberiaColors.ink),
+        PlateRectShape(0, 45.1, 67.1, 1.2, LiberiaColors.ink),
+        PlateRectShape(0, 0, 1.2, 46.3, LiberiaColors.ink),
+        PlateRectShape(65.9, 0, 1.2, 46.3, LiberiaColors.ink),
+      ]);
 
-  static PlateSlot _field(PlateAlphabet alphabet, int length, int minLength, double left) =>
-      PlateSlot(
-        alphabet: alphabet,
-        box: PlateBox(
-          left,
-          _Layout.numberCy - _Layout.box / 2,
-          length * _Layout.pitch,
-          _Layout.box,
-        ),
-        length: length,
-        minLength: minLength,
-        spacing: max(0, _Layout.pitch - 0.6 * 0.72 * _Layout.box),
-      );
+  static PlateSlot _field(
+    PlateAlphabet alphabet,
+    int length,
+    int minLength,
+    double left,
+  ) => PlateSlot(
+    alphabet: alphabet,
+    box: PlateBox(
+      left,
+      _Layout.numberCy - _Layout.box / 2,
+      length * _Layout.pitch,
+      _Layout.box,
+    ),
+    length: length,
+    minLength: minLength,
+    spacing: max(0, _Layout.pitch - 0.6 * 0.72 * _Layout.box),
+  );
 }
