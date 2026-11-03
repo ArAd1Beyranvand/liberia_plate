@@ -22,7 +22,6 @@ abstract final class LiberiaCountry {
 
   static const PlateCountry liberia = PlateCountry(
     code: 'lr',
-    captionLines: <String>[],
     panelColor: LiberiaColors.field,
     panelTextColor: LiberiaColors.ink,
     flagAspectRatio: 19 / 10,

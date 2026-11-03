@@ -8,7 +8,6 @@ abstract final class LiberiaThemes {
   static final PlateTheme diplomatic = PlateTheme.monochrome(
     field: LiberiaColors.field,
     ink: LiberiaColors.ink,
-    inactive: LiberiaColors.inactive,
     borderWidthRatio: 0.015,
     plateRadiusRatio: 0.05,
   );

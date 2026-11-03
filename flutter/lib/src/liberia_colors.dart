@@ -16,5 +16,4 @@ abstract final class LiberiaColors {
   static const Color flagBlue = Color(0xFF002868); // CALIBRATE
 
   static const Color flagWhite = Color(0xFFFFFFFF);
-  static const Color inactive = Color(0xFFB0B0B0);
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -26,12 +24,9 @@ import 'liberia_country.dart';
 /// that fits three-three-two characters between x 144 and 510. The two screw
 /// holes are not drawn. The article names nothing Israel-specific.
 abstract final class _Layout {
-  static const double width = 520;
-  static const double height = 264;
+  static const double width = 520, height = 264;
 
-  static const double numberCy = 132.6;
-  static const double box = 100;
-  static const double pitch = 0.6 * 0.72 * box;
+  static const double numberCy = 132.6, box = 100, pitch = 0.6 * 0.72 * box;
   static const double missionLeft = 144;
   static const double statusLeft = missionLeft + 3 * pitch + 10;
   static const double numberLeft = statusLeft + 3 * pitch + 10;
@@ -41,8 +36,7 @@ abstract final class _Layout {
   static const PlateBox flag = PlateBox(11.7, 7.3, 70.3, 47.3);
 
   static const double ovalCx = 71.5, ovalCy = 130.8;
-  static const double ovalRadius = 55, ovalStroke = 4;
-  static const double lbGlyph = 60;
+  static const double ovalRadius = 55, ovalStroke = 4, lbGlyph = 60;
 
   static const PlateBox sticker = PlateBox(439.4, 208, 67.1, 46.3);
 }
@@ -59,8 +53,6 @@ abstract final class LiberiaPlates {
     country: LiberiaCountry.liberia,
     canvasWidth: _Layout.width,
     canvasHeight: _Layout.height,
-    panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
-    noPanel: true,
     slots: <PlateSlot>[
       _field(LiberiaAlphabets.digits, 3, 1, _Layout.missionLeft),
       _field(LiberiaAlphabets.letters, 3, 2, _Layout.statusLeft),
@@ -93,11 +85,7 @@ abstract final class LiberiaPlates {
       PlateDecal(drawing: _oval, box: PlateBox(0, 0, 520, 264)),
       PlateDecal(drawing: _stickerFrame, box: _Layout.sticker),
     ],
-    textGroups: const <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'mission'),
-      PlateTextGroup(<int>[1], key: 'status'),
-      PlateTextGroup(<int>[2], key: 'number'),
-    ],
+    textGroups: PlateTextGroup.perSlot(<String>['mission', 'status', 'number']),
   );
 
   static List<PlateSpec> get all => <PlateSpec>[diplomatic];
@@ -128,16 +116,13 @@ abstract final class LiberiaPlates {
     int length,
     int minLength,
     double left,
-  ) => PlateSlot(
-    alphabet: alphabet,
-    box: PlateBox(
-      left,
-      _Layout.numberCy - _Layout.box / 2,
-      length * _Layout.pitch,
-      _Layout.box,
-    ),
-    length: length,
+  ) => plateRun(
+    alphabet,
+    length,
+    left: left,
+    top: _Layout.numberCy - _Layout.box / 2,
+    pitch: _Layout.pitch,
+    height: _Layout.box,
     minLength: minLength,
-    spacing: max(0, _Layout.pitch - 0.6 * 0.72 * _Layout.box),
   );
 }
