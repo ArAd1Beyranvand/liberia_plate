@@ -1,4 +1,4 @@
-import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, valid } from '../../core/validators/plate_validator';
+import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, valid } from 'plate_core/core/validators/plate_validator';
 
 /** Judges a diplomatic plate: one to three digits (the mission), `CD` or `CMD`,
 then a number (`1 CD 13`). Reports, never bars a keystroke.
